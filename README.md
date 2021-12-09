@@ -17,7 +17,6 @@ Clone or download this repository from
 
     git clone git@github.com:siorconsulting/nrip-jamaica.git
 
-
 ## Available Toolsets  
 
 > WORK IN PROGRESS
@@ -42,7 +41,3 @@ Toolsets include:
   - Slope masking
 
 Toolsets are currently implemented using arcpy, which requires an ArcGIS Desktop / ArcGIS Pro basic license. Some tools require the Data Management and Spatial Analyst extensions.
-
-### Example notebook on Google Colab
-
-Link to Colab notebook: https://colab.research.google.com/drive/1GjPS-aYbshqJlh5eYuFvNsh488_z2FFQ?usp=sharing
