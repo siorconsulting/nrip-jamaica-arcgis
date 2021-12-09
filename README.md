@@ -1,6 +1,6 @@
 # ArcGIS Toolset for National Risk Information Platform in Jamaica
 
-ArcGIS developed for National Risk Information Platform (NRIP) project in Jamaica in 2021.
+ArcGIS tools developed for National Risk Information Platform (NRIP) project in Jamaica in 2021.
 
 ## Project Context - National Risk Information Platform (NRIP)
 
