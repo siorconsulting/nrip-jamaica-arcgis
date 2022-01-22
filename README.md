@@ -41,3 +41,5 @@ Toolsets include:
   - Slope masking
 
 Toolsets are currently implemented using arcpy, which requires an ArcGIS Desktop / ArcGIS Pro basic license. Some tools require the Data Management and Spatial Analyst extensions.
+
+Main NRIP project repository: https://github.com/siorconsulting/nrip-jamaica.git
