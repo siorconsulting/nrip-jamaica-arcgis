@@ -15,7 +15,7 @@ def set_null_below(inRaster, th):
       th : float
   
   Return:
-      betweenRaster : raster
+      outRaster : raster
   
   """
   outRaster = SetNull(inRaster < th, inRaster)
@@ -30,7 +30,7 @@ def set_null_above(inRaster, th):
       th : float
   
   Return:
-      betweenRaster : raster
+      outRaster : raster
   
   """
   outRaster = SetNull(inRaster > th, inRaster)
@@ -46,7 +46,7 @@ def set_null_between(inRaster, low_th, high_th):
       high_th : float
   
   Return:
-      betweenRaster : raster
+      outRaster : raster
   
   """
          
