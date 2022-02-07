@@ -20,21 +20,20 @@ def inundation_extents(ElevationRaster, list_thresholds=[0,5,10,15], out_raster_
 
     """
     
-    multiplier = 10^decimal_places
+    multiplier = 10**decimal_places
     ElevationRasterInt = Int(ElevationRaster * multiplier)
 
     for i, th in enumerate(list_thresholds):
-        if i==0:
-
-            outRaster=set_null_above(ElevationRasterInt,th*multiplier)
-            if out_raster_root_path is not None:
-                outRaster.save(f"{out_raster_root_path}_below_{str(th).replace('.','p')}")
-            if out_polygon_root_path is not None:
-                out_polygon_features = f"{out_polygon_root_path}_below_{str(th).replace('.','p')}"
-                arcpy.conversion.RasterToPolygon(outRaster, out_polygon_features)
+    
+    #     if i==0:
+    #         outRaster=set_null_above(ElevationRasterInt,th*multiplier)
+    #         if out_raster_root_path is not None:
+    #             outRaster.save(f"{out_raster_root_path}_below_{str(th).replace('.','p')}")
+    #         if out_polygon_root_path is not None:
+    #             out_polygon_features = f"{out_polygon_root_path}_below_{str(th).replace('.','p')}"
+    #             arcpy.conversion.RasterToPolygon(outRaster, out_polygon_features)
 
         if i<len(list_thresholds)-1:
-
             low_th = th
             high_th = list_thresholds[i+1]
             outRaster = set_null_between(ElevationRasterInt, low_th*multiplier, high_th*multiplier)
