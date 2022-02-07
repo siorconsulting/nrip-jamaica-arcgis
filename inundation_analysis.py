@@ -1,7 +1,7 @@
 import arcpy
 from arcpy import env
 from arcpy.sa import *
-from conditional_eval import *
+from utils import *
 
 __all__ = ['inundation_extents']
 
