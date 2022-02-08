@@ -72,13 +72,14 @@ def reclassify_raster(in_raster, reclass_field="Value", save_raster=False, save_
     """Reclassify raster values.
     
     Inputs:
-           in_raster : raster
-           reclass_field : 
-           save_raster :
-           save_raster_path : 
+        in_raster : raster
+        reclass_field : 
+        save_raster :
+        save_raster_path : 
     
     Returns:
-           None
+        None
+    
     """
     
     array = arcpy.RasterToNumPyArray(in_raster)
@@ -98,15 +99,23 @@ def reclassify_raster(in_raster, reclass_field="Value", save_raster=False, save_
     
     return outReclass
 
-def set_symbology_from_layer(inputLayer, symbologyLayer):
-    """Import symbology from layer
+def set_symbology_from_layer(inputLayer, symbologyLayer, field, new_field_name, new_field_alias):
+    """Import symbology from layer file. 
     
     Inputs:
+        inputLayer : str 
+        symbologyLayer : str
+        field : 
+        new_field_name : 
+        new_field_alias :
     
     Returns: 
            None
     """
     
+    
+    arcpy.management.AlterField(inputLayer, field, new_field_name, new_field_alias)
+
     # Apply the symbology from the symbology layer to the input layer
     arcpy.ApplySymbologyFromLayer_management(inputLayer, symbologyLayer)
                             
