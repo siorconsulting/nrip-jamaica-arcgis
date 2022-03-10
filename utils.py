@@ -113,7 +113,7 @@ def set_symbology_from_layer(inputLayer, symbologyLayer, field, new_field_name, 
            None
     """
     
-    
+    # Change field name
     arcpy.management.AlterField(inputLayer, field, new_field_name, new_field_alias)
 
     # Apply the symbology from the symbology layer to the input layer
