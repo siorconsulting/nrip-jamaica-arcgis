@@ -12,7 +12,7 @@ class nrip_toolbox:
     #### GEOMETRIC ANALYSIS ####
 
     # Zonal Statistics
-    def zonal_statistics(in_zone_data, zone_field, in_value_raster, outRasterPath, statistics_type = 'MEAN'):
+    def zonal_statistics(self, in_zone_data, zone_field, in_value_raster, outRasterPath, statistics_type = 'MEAN'):
         """Calculates zonal statistics
         
         Inputs:
@@ -30,7 +30,7 @@ class nrip_toolbox:
         outRaster.save(outRasterPath)
 
     # Summarise Within
-    def summarize_within(in_polygons, in_sum_features, out_feature_class, keep_all_polygons='KEEP_ALL', sum_fields='Sum'):
+    def summarize_within(self, in_polygons, in_sum_features, out_feature_class, keep_all_polygons='KEEP_ALL', sum_fields='Sum'):
         """Calculates summarize within and exports to a feature class.
         
         Inputs:
@@ -50,7 +50,7 @@ class nrip_toolbox:
                                     )
 
     # Calculate Proximity
-    def calculate_proximity(inSourceData, maxDistance, cellSize, outDirectionRaster):
+    def calculate_proximity(self, inSourceData, maxDistance, cellSize, outDirectionRaster):
         """Calculates proximity based on Euclidean distance
         
         Inputs:
@@ -66,7 +66,7 @@ class nrip_toolbox:
         return outEucDistance
 
     # Calculate Hotspots
-    def calculate_hotspots(in_features, masking_polygon, out_raster_path, population_field = None):                                      
+    def calculate_hotspots(self, in_features, masking_polygon, out_raster_path, population_field = None):                                      
         """Calculates hotspots based on a layer of points using a kernel function to fit a smoothly tapered surface.
         
         Inputs:
@@ -103,7 +103,7 @@ class nrip_toolbox:
         outReclass.save(out_raster_path)
 
     # Buffer Vector
-    def buffer_vector(in_features, out_feature_class, buffer_distance_or_field):
+    def buffer_vector(self, in_features, out_feature_class, buffer_distance_or_field):
         """Buffers vector features by specified distance.
         
         Inputs:
@@ -118,7 +118,7 @@ class nrip_toolbox:
         arcpy.analysis.Buffer(in_features, out_feature_class, buffer_distance_or_field)
 
     # Intersection 
-    def intersection(in_features, out_feature_class):
+    def intersection(self, in_features, out_feature_class):
         """Intersect
             
         Inputs:
@@ -133,7 +133,7 @@ class nrip_toolbox:
     #### GEOMORPHOLOGICAL ANALYSIS ####
 
     # Calculate Slope
-    def calculate_slope(ElevationRaster):
+    def calculate_slope(self, ElevationRaster):
         """Create slope raster.
         
         Inputs:
@@ -146,7 +146,7 @@ class nrip_toolbox:
         return outSlope
 
     # Calculate Aspect
-    def calculate_aspect(ElevationRaster):
+    def calculate_aspect(self, ElevationRaster):
         """Create aspect raster.
         
         Inputs:
@@ -159,7 +159,7 @@ class nrip_toolbox:
         return outAspect
     
     # Steep Areas
-    def steep_areas(ElevationRaster, threshold=20, out_raster_features=None, out_polygon_features=None):
+    def steep_areas(self, ElevationRaster, threshold=20, out_raster_features=None, out_polygon_features=None):
         '''Create mask of areas with slope equal or higher than a threshold.
 
         Inputs:
@@ -182,7 +182,7 @@ class nrip_toolbox:
 
     #### Hydrological Analysis ####
 
-    def calculate_fill(inSurfaceRaster, zLimit=None):
+    def calculate_fill(self, inSurfaceRaster, zLimit=None):
         """Calculates filled digital elevation model raster.
         
         Inputs:
@@ -201,7 +201,7 @@ class nrip_toolbox:
         return outFill
     
     # Calculate Flow Direction
-    def calculate_flow_direction(inFillRaster):
+    def calculate_flow_direction(self, inFillRaster):
         """Calculates flow direction raster.
         
         Inputs:
@@ -215,7 +215,7 @@ class nrip_toolbox:
         return outFlowDirection
 
     # Calculate Flow Accumulation
-    def calculate_flow_accumulation(inFlowDirection):
+    def calculate_flow_accumulation(self, inFlowDirection):
         """Calculates flow accumulation raster.
         
         Inputs:
@@ -229,7 +229,7 @@ class nrip_toolbox:
         return outFlowAccumulation
 
     # Calculate Flow Direction
-    def calculate_flow_network(inFlowAccumulation, flow_acc_threshold):
+    def calculate_flow_network(self, inFlowAccumulation, flow_acc_threshold):
         """Calculates flow network raster.
         
         Inputs:
@@ -244,7 +244,7 @@ class nrip_toolbox:
         return outFlowAccumulationNetwork
 
     # Complete Hydrological Routine
-    def complete_hydrological_routine(inSurfaceRaster, gdb_folder_path, gdb_name, out_filename_root=None, flow_acc_threshold=1000):
+    def complete_hydrological_routine(self, inSurfaceRaster, gdb_folder_path, gdb_name, out_filename_root=None, flow_acc_threshold=1000):
         """ Hydrological routing routine, which generates the following:
 
         Inputs:
@@ -303,7 +303,7 @@ class nrip_toolbox:
     #### INUNDATION ANALYSIS ####
 
     # Inundation Extents
-    def inundation_extents(ElevationRaster, list_thresholds=[0,5,10,15], out_raster_root_path=None, out_polygon_root_path=None, decimal_places=3):
+    def inundation_extents(self, ElevationRaster, list_thresholds=[0,5,10,15], out_raster_root_path=None, out_polygon_root_path=None, decimal_places=3):
         """ Creates a set of inundation extents based on elevation thresholds and exports them as polygons and/or rasters.
 
         Inputs:
@@ -344,7 +344,7 @@ class nrip_toolbox:
     #### UTILS ####
 
     # Change First Character to Alphabetic
-    def change_first_character_to_alphabetic(name):
+    def change_first_character_to_alphabetic(self, name):
         """Adds AA_ prefix to a string if its first character is not alphabetic
         
         Inputs:
@@ -359,7 +359,7 @@ class nrip_toolbox:
             return name
 
     # Rename Feature Class if it Already Exists
-    def rename_feature_class_if_already_exists(gdb_folder_path, gdb_name, out_feature_class):
+    def rename_feature_class_if_already_exists(self, gdb_folder_path, gdb_name, out_feature_class):
         """Adds numeric suffix to a feature class name if this already exists in the specified geodatabase
         
         Inputs:
@@ -384,7 +384,7 @@ class nrip_toolbox:
             return new_out_feature_class
 
     # Create Geodatabase
-    def create_geodatabase(gdb_folder_path, gdb_name):
+    def create_geodatabase(self, gdb_folder_path, gdb_name):
         """Creates a new file geodabatase at the specified location and, if needed, overwrites the existing one.
         
         Inputs:
@@ -401,7 +401,7 @@ class nrip_toolbox:
         return print("geodatabase successfully created")
 
     # Reclassify Raster
-    def reclassify_raster(in_raster, reclass_field="Value", save_raster=False, save_raster_path=None):
+    def reclassify_raster(self, in_raster, reclass_field="Value", save_raster=False, save_raster_path=None):
         """Reclassify raster values.
         
         Inputs:
@@ -433,7 +433,7 @@ class nrip_toolbox:
         return outReclass
 
     # Set Symbology From Layer
-    def set_symbology_from_layer(inputLayer, symbologyLayer, field, new_field_name, new_field_alias):
+    def set_symbology_from_layer(self, inputLayer, symbologyLayer, field, new_field_name, new_field_alias):
         """Import symbology from layer file. 
         
         Inputs:
@@ -454,7 +454,7 @@ class nrip_toolbox:
         arcpy.ApplySymbologyFromLayer_management(inputLayer, symbologyLayer)
 
     # Set Null Below
-    def set_null_below(inRaster, th):
+    def set_null_below(self, inRaster, th):
         """ Creates constant valued raster based on SetNull operator below threshold.
         
         Input:
@@ -470,7 +470,7 @@ class nrip_toolbox:
         return outRaster
 
     # Set Null Above
-    def set_null_above(inRaster, th):
+    def set_null_above(self, inRaster, th):
         """ Creates constant valued raster based on SetNull operator above threshold.
         
         Input:
@@ -486,7 +486,7 @@ class nrip_toolbox:
         return outRaster
 
     # Set Null Between
-    def set_null_between(inRaster, low_th, high_th):
+    def set_null_between(self, inRaster, low_th, high_th):
         """ Creates constant valued raster based on two SetNull operations.
         
         Input:
