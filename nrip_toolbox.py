@@ -180,7 +180,7 @@ class nrip_toolbox:
             arcpy.management.Dissolve(out_polygon_features, out_polygon_features+'_dissolve')
         return steepAreas
 
-    #### Hydrological Analysis ####
+    #### HYDROLOGICAL ANALYSIS ####
 
     def calculate_fill(self, inSurfaceRaster, zLimit=None):
         """Calculates filled digital elevation model raster.
